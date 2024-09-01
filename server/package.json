@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "check-disk-space": "^3.4.0",
+    "systeminformation": "^5.23.5"
+  }
+}
