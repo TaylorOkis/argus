@@ -22,16 +22,9 @@ async function getMemoryData() {
 async function getDiskData() {
     try {
         const diskInfo = await disk('C:/');
-        console.log(diskInfo);
         let totalStorage = diskInfo.size / (1024 * 1024);
         let freeStorage = diskInfo.free / (1024 * 1024);
         let usedStorage = totalStorage - freeStorage;
-
-        console.log(`{
-            totalStorage: ${totalStorage},
-            freeStorage: ${freeStorage},
-            usedStorage: ${usedStorage}
-        }`);
 
         return {
             totalStorage: totalStorage,
@@ -69,13 +62,13 @@ async function checkSystemUtilization() {
     let cpuData = await getCpuData();
 
     return {
-        totalMemory: memoryData.totalMemory.toFixed(2),
-        freeMemory: memoryData.freeMemory.toFixed(2),
-        usedMemory: memoryData.usedMemory.toFixed(2),
-        totalStorage: diskData.totalStorage.toFixed(2),
-        usedStorage: diskData.usedStorage.toFixed(2),
-        freeStorage: diskData.freeStorage.toFixed(2),
-        cpuData: cpuData.cpuUtilization.toFixed(2)
+        totalMemory: parseFloat(memoryData.totalMemory.toFixed(2)),
+        freeMemory: parseFloat(memoryData.freeMemory.toFixed(2)),
+        usedMemory: parseFloat(memoryData.usedMemory.toFixed(2)),
+        totalStorage: parseFloat(diskData.totalStorage.toFixed(2)),
+        usedStorage: parseFloat(diskData.usedStorage.toFixed(2)),
+        freeStorage: parseFloat(diskData.freeStorage.toFixed(2)),
+        cpuData: parseFloat(cpuData.cpuUtilization.toFixed(2))
     }
 }
 

@@ -8,9 +8,8 @@
 .chart {
     width: 500px;
     height: 300px;
-    background-color: blue;
 }
 
 #cpuChart {
-    min-width: 1030px;
+    width: 1030px;
 }
