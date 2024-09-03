@@ -15,14 +15,27 @@ let cpuOptions, diskOptions, memoryOptions;
 
 
 async function drawCharts() {
+    let osData = await getOSInformation();
     systemData = await checkSystemUtilization();
 
     drawMemoryPieChart();
     drawDiskPieChart();
     drawCpuAreaChart();
 
-    setInterval(updateCharts, 1000);
+    // setInterval(updateCharts, 1000);
 }
+
+async function getOSInformation() {
+    try {
+        let response = await fetch('http://localhost:3000/os-info');
+        let data = await response.json();
+
+        console.log(data);
+    } catch (error) {
+        console.error('Error fetching OS Information: ', error);
+    }
+}
+
 
 async function checkSystemUtilization() {
     try {
