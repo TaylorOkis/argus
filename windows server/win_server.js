@@ -2,6 +2,14 @@ const si = require('systeminformation');
 const http = require('http');
 const disk = require('check-disk-space').default;
 
+async function getOSInfo() {
+    try {
+        return (await (si.osInfo())).platform;
+    } catch (error) {
+        console.error('Error fetching os information: ', error);
+    }
+}
+
 async function getMemoryData() {
     try {
         const mem = await si.mem();
@@ -95,6 +103,14 @@ const server = http.createServer(async (req, res) => {
         res.writeHead(200, { 'Content-Type': 'application/json' });
 
         res.end(JSON.stringify(systemUtil));
+    }
+
+    if (req.url === '/os-info') {
+        let os = await getOSInfo();
+
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+
+        res.end(JSON.stringify(os));
     }
 });
 
