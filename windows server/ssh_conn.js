@@ -3,7 +3,6 @@ const http = require('http');
 const socketIO = require('socket.io');
 const SSHClient = require('ssh2').Client;
 const si = require('systeminformation');
-const http = require('http');
 const disk = require('check-disk-space').default;
 
 async function getOSInfo() {
@@ -134,8 +133,8 @@ io.on('connecton', (socket) => {
         console.log('SSH Connection closed');
     }
     ).connect({
-        host: 'ip-address',
-        port: 8000,
+        host: 'localhost',
+        port: 22,
         username: 'username',
         password: 'password',
     });
