@@ -1,6 +1,4 @@
-Below is a detailed, portfolio-worthy summary and documentation of the **Argus** system-resource monitoring repository. You can drop this straight into a `README.md`. All configuration files (i.e. `package.json`) are copied **verbatim**; no other code snippets are included. The explanations describe every feature, layer, and use-case in technical depth.
-
----
+# ARGUS (A software to monitor system utilization on remote servers)
 
 ## Table of Contents
 
